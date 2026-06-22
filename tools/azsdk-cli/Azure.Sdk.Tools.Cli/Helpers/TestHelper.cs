@@ -7,7 +7,7 @@ namespace Azure.Sdk.Tools.Cli.Services;
 public interface ITestHelper
 {
     /// <summary>
-    /// Human-readable name for the format this parser handles (e.g., "TRX", "JUnit XML").
+    /// Human-readable name for the format this parser handles (e.g., "TRX", "JUnit XML", "NUnit").
     /// </summary>
     string FormatName { get; }
 
