@@ -12,7 +12,7 @@ public interface ITestHelper
     string FormatName { get; }
 
     /// <summary>
-    /// Returns true if this parser can handle the given file.
+    /// Returns true if this parser can handle the given file based on its format or extension.
     /// </summary>
     bool CanParse(string filePath);
 
