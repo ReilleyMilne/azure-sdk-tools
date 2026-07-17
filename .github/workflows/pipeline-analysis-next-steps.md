@@ -32,6 +32,10 @@ on:
         description: "Head SHA of the completed check suite, for stale-commit detection on CI-triggered runs"
         required: false
         type: string
+      analysis_identifier:
+        description: "TEST-ONLY override: azsdk analyze target (build URL/ID or PR URL). When set, used instead of the PR URL."
+        required: false
+        type: string
 
 # The workflow is always dispatched (by the trigger workflow or manually); never runs off the
 # repository-associated PR of its own ref.
@@ -78,9 +82,12 @@ steps:
     env:
       GITHUB_TOKEN: ${{ github.token }}
       PR_URL: "https://github.com/${{ github.repository }}/pull/${{ github.event.inputs.pr_number }}"
+      ANALYSIS_IDENTIFIER: ${{ github.event.inputs.analysis_identifier }}
     run: |
       set +e
-      azsdk ci analyze "$PR_URL" > "$GITHUB_WORKSPACE/pipeline-analysis.txt" 2>&1
+      TARGET="${ANALYSIS_IDENTIFIER:-$PR_URL}"
+      echo "Analyzing target: $TARGET"
+      azsdk ci analyze "$TARGET" > "$GITHUB_WORKSPACE/pipeline-analysis.txt" 2>&1
       echo "azsdk ci analyze exit code: $?"
       echo "----- pipeline-analysis.txt -----"
       cat "$GITHUB_WORKSPACE/pipeline-analysis.txt"
