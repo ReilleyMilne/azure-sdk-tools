@@ -10,7 +10,7 @@ compatibility: "azure-sdk-mcp server, Azure DevOps pipeline build ID or GitHub P
 
 # Pipeline Analysis
 
-This skill analyzes Azure SDK CI/CD pipeline failures and provides a structured diagnosis including root cause, affected files, and concrete instructions for how to fix each issue. It does NOT apply fixes - it tells you exactly what's wrong and how to resolve it.
+This skill analyzes Azure SDK CI/CD pipeline failures and provides a structured diagnosis including root cause, affected files, and concrete instructions for how to fix each issue. It does NOT apply fixes - it tells you exactly what's wrong and how to resolve it. Test!
 
 ## Rules
 
