@@ -13,7 +13,7 @@ pr:                    # run on pull requests targeting main
       - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: Default          # self-hosted agent pool
 
 steps:
   - script: |
